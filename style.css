@@ -150,3 +150,5 @@ h1 { font-size: 40px; color: #5a2d0c; text-shadow: 2px 2px #fff; }
 
 .shake { animation: shake .3s; }
 @keyframes shake { 0%,100% {transform: translateX(0);} 25% {transform: translateX(-6px);} 75% {transform: translateX(6px);} }
+#recipe-book { background:#fff; border:3px solid #c97b2a; border-radius:12px; padding:8px; margin-top:8px; font-size:13px; color:#5a2d0c; }
+.recipe { padding:4px 0; border-bottom:1px dashed #c97b2a; }
