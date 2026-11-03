@@ -14,7 +14,7 @@ const INGREDIENTS = [
   { id: "lemonade", emoji: "🍋", name: "Lemonade" }
 ];
 
-// Meals (diversity of meals)
+// Meals
 const MEALS = [
   { name: "Classic Falafel Wrap",  items: ["pita", "falafel", "tomato", "lettuce", "tahini"], price: 10 },
   { name: "Spicy Falafel Wrap",    items: ["pita", "falafel", "chili", "onion", "tahini"],    price: 12 },
@@ -33,8 +33,8 @@ const PATIENCE_TIME = 25;   // seconds per customer
 
 // ---------- STATE ----------
 let score, coins, timeLeft, tray, currentOrder, patience;
-let friedFalafel;            // number of ready falafels in the basket
-let fryStart = null;         // when frying started
+let friedFalafel;
+let fryStart = null;
 let gameTimer, patienceTimer, fryTimer;
 let streak;
 
@@ -142,8 +142,7 @@ function renderTray() {
     : "<span style='font-size:14px;color:#777'>Empty tray</span>";
 }
 
-$("clear-btn")?.addEventListener("click", () => {
-  // return unused falafels
+$("clear-btn").addEventListener("click", () => {
   friedFalafel += tray.filter(t => t === "falafel").length;
   tray = []; renderTray(); updateFryerText(); say("");
 });
@@ -156,8 +155,7 @@ function serve() {
   const have = [...tray].sort().join(",");
 
   if (need === have) {
-    // Points: base 20 + speed bonus + streak bonus
-    const speedBonus = Math.round(patience);               // faster = more
+    const speedBonus = Math.round(patience);
     streak++;
     const streakBonus = streak >= 3 ? 15 : 0;
     const gained = 20 + speedBonus + streakBonus;
@@ -175,12 +173,11 @@ function serve() {
     streak = 0;
     say("❌ Wrong order! -5 points", false);
     shake();
-    // give falafels back
     friedFalafel += tray.filter(t => t === "falafel").length;
     tray = []; renderTray(); updateFryerText(); updateHUD();
   }
 }
-$("serve-btn")?.addEventListener("click", serve);
+$("serve-btn").addEventListener("click", serve);
 
 // ---------- FRYER ----------
 function resetFryer() {
@@ -224,7 +221,7 @@ function updateFryer() {
   }
 }
 
-$("fry-btn")?.addEventListener("click", () => {
+$("fry-btn").addEventListener("click", () => {
   if (fryStart === null) { startFry(); return; }
   const t = Date.now() - fryStart;
   if (t < FRY_TIME) {
@@ -262,11 +259,3 @@ function shake() {
 buildIngredientButtons();
 $("start-btn").addEventListener("click", startGame);
 $("restart-btn").addEventListener("click", startGame);
-$("recipe-btn").addEventListener("click", () => {
-  const rb = $("recipe-book");
-  rb.classList.toggle("hidden");
-  rb.innerHTML = MEALS.map(m =>
-    `<div class="recipe"><b>${m.name}</b> (💰${m.price})<br>` +
-    m.items.map(id => INGREDIENTS.find(i => i.id === id).emoji).join(" ") + `</div>`
-  ).join("");
-});
