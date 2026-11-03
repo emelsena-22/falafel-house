@@ -262,3 +262,11 @@ function shake() {
 buildIngredientButtons();
 $("start-btn").addEventListener("click", startGame);
 $("restart-btn").addEventListener("click", startGame);
+$("recipe-btn").addEventListener("click", () => {
+  const rb = $("recipe-book");
+  rb.classList.toggle("hidden");
+  rb.innerHTML = MEALS.map(m =>
+    `<div class="recipe"><b>${m.name}</b> (💰${m.price})<br>` +
+    m.items.map(id => INGREDIENTS.find(i => i.id === id).emoji).join(" ") + `</div>`
+  ).join("");
+});
