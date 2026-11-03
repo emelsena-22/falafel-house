@@ -1,0 +1,9 @@
+{
+  "name": "Falafel House",
+  "short_name": "Falafel",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fff4dc",
+  "theme_color": "#2e8b3d",
+  "icons": []
+}
