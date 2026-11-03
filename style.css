@@ -1,20 +1,24 @@
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 
+html, body { height: 100%; }
+
 body {
   font-family: "Trebuchet MS", Arial, sans-serif;
   background: #3b2a1a;
   display: flex;
   justify-content: center;
   min-height: 100vh;
+  min-height: 100dvh;
 }
 
 #app {
   width: 100%;
   max-width: 480px;
   min-height: 100vh;
+  min-height: 100dvh;
   background: #fff4dc;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .hidden { display: none !important; }
@@ -24,6 +28,7 @@ body {
 /* START / END */
 #start-screen, #end-screen {
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -150,5 +155,3 @@ h1 { font-size: 40px; color: #5a2d0c; text-shadow: 2px 2px #fff; }
 
 .shake { animation: shake .3s; }
 @keyframes shake { 0%,100% {transform: translateX(0);} 25% {transform: translateX(-6px);} 75% {transform: translateX(6px);} }
-#recipe-book { background:#fff; border:3px solid #c97b2a; border-radius:12px; padding:8px; margin-top:8px; font-size:13px; color:#5a2d0c; }
-.recipe { padding:4px 0; border-bottom:1px dashed #c97b2a; }
