@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Falafel House" />
+  <link rel="manifest" href="manifest.json" />
+  <title>Falafel House</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+
+    <!-- START SCREEN -->
+    <div id="start-screen" class="screen">
+      <div class="logo">🧆</div>
+      <h1>Falafel House</h1>
+      <p class="tagline">Cook, serve and make your customers happy!</p>
+      <button id="start-btn" class="big-btn">▶ Start Cooking</button>
+      <p class="how">Grab the right ingredients, fry the falafel, and serve before customers lose patience!</p>
+    </div>
+
+    <!-- GAME SCREEN -->
+    <div id="game-screen" class="screen hidden">
+
+      <div id="hud">
+        <div>⭐ Score: <span id="score">0</span></div>
+        <div>💰 Coins: <span id="coins">0</span></div>
+        <div>⏱ Time: <span id="time">90</span></div>
+      </div>
+
+      <!-- Restaurant ambience -->
+      <div id="restaurant">
+        <div class="lamp l1">💡</div>
+        <div class="lamp l2">💡</div>
+        <div class="sign">🌿 FALAFEL HOUSE 🌿</div>
+        <div class="plant">🪴</div>
+        <div class="plant right">🌵</div>
+        <div id="customer-area"></div>
+        <div class="counter"></div>
+      </div>
+
+      <!-- Order bubble -->
+      <div id="order-box">
+        <div id="order-text">Waiting for a customer...</div>
+        <div id="patience-bar"><div id="patience-fill"></div></div>
+      </div>
+
+      <!-- Tray (what the player builds) -->
+      <div id="tray-area">
+        <div class="tray-title">Your Tray:</div>
+        <div id="tray"></div>
+        <div id="message"></div>
+      </div>
+
+      <!-- Cooking station -->
+      <div id="station">
+        <button id="fry-btn" class="action-btn">🔥 Fry Falafel</button>
+        <div id="fryer">
+          <div id="fry-text">Fryer is empty</div>
+          <div id="fry-bar"><div id="fry-fill"></div></div>
+        </div>
+      </div>
+
+      <!-- Ingredient buttons -->
+      <div id="ingredients"></div>
+
+      <div id="bottom-btns">
+        <button id="clear-btn" class="action-btn red">🗑 Clear Tray</button>
+        <button id="serve-btn" class="action-btn green">✅ Serve</button>
+      </div>
+    </div>
+
+    <!-- END SCREEN -->
+    <div id="end-screen" class="screen hidden">
+      <div class="logo">🏆</div>
+      <h1>Time's Up!</h1>
+      <p id="final-score" class="tagline"></p>
+      <p id="rank-text" class="how"></p>
+      <button id="restart-btn" class="big-btn">🔄 Play Again</button>
+    </div>
+
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
